@@ -12,6 +12,6 @@ export export AWS_SESSION_TOKEN="asessiontoken"
 ```
 
 
-#pics
+
 
 [8]: stuff/acme.jpeg

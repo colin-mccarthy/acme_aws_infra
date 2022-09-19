@@ -1,4 +1,4 @@
-# acme_aws_infra
+# Acme Corp AWS infrastructure automation repository
 
 ![Acme_pic][8]
 

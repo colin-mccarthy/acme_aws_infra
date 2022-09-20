@@ -23,11 +23,6 @@ module "ec2_instances" {
 
 
 
-
-
-
-
-
 module "sg" {
   source = "terraform-aws-modules/security-group/aws"
   

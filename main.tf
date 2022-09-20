@@ -75,7 +75,7 @@ resource "aws_security_group" "ubuntu_servers" {
 
 
 output "instance_ip_addr2" {
-  value = module.ec2_instances.public_dns
+  value = module.ec2_instances[*].public_ip
 }
   
 output "instance_ip_addr" {

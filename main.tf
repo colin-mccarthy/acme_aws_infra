@@ -1,17 +1,5 @@
 
 
-resource "aws_instance" "ubuntu_server" {
-  ami                    = "ami-052efd3df9dad4825"
-  instance_type          = "t3.micro"
-  key_name               = "terra"
-  vpc_security_group_ids = [aws_security_group.ubuntu_servers.id]
-
-  tags = {
-    Name = "Ubuntu"
-  }
-}
-
-
 variable "my_vpc" {
   type = string
 }
@@ -78,6 +66,6 @@ output "instance_ip_addr2" {
   value = module.ec2_instances[*].public_ip
 }
   
-output "instance_ip_addr" {
-  value = aws_instance.ubuntu_server.public_dns
+output "instance_public_dns" {
+  value = module.ec2_instances[*].public_dns
 }

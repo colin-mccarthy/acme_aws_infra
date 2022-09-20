@@ -7,7 +7,7 @@ resource "aws_instance" "ubuntu_server" {
   vpc_security_group_ids = [aws_security_group.ubuntu_servers.id]
 
   tags = {
-    Name = "HelloWorld"
+    Name = "Ubuntu"
   }
 }
 

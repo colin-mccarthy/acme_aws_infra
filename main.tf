@@ -37,7 +37,7 @@ module "vote_service_sg" {
 
   egress_with_cidr_blocks = [
     {
-      cidr_blocks      = [ "0.0.0.0/0", ]
+      cidr_blocks      = "0.0.0.0/0"
       description      = ""
       from_port        = 0
       ipv6_cidr_blocks = []
@@ -51,7 +51,7 @@ module "vote_service_sg" {
   
   ingress_with_cidr_blocks = [
    {
-     cidr_blocks      = [ "0.0.0.0/0", ]
+     cidr_blocks      = "0.0.0.0/0"
      description      = ""
      from_port        = 22
      ipv6_cidr_blocks = []

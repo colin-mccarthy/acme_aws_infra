@@ -13,7 +13,7 @@ module "ec2_instances" {
 
   ami                    = "ami-052efd3df9dad4825"
   instance_type          = "t3.micro"
-  vpc_security_group_ids = [module.sg.ubuntu_servers.id]
+  vpc_security_group_ids = [sg.ubuntu_servers.id]
   key_name               = "terra"
 
   tags = {

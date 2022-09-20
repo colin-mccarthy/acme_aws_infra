@@ -1,5 +1,5 @@
 output "sg" {
   value = {
-    sg  = module.sg.security_group_id
+    web_sg  = module.sg.security_group_id
   }
 }

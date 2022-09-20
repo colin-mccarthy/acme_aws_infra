@@ -16,6 +16,30 @@ variable "my_vpc" {
   type = string
 }
 
+
+module "ec2_instances" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "3.5.0"
+  count   = 1
+
+
+  ami                    = "ami-052efd3df9dad4825"
+  instance_type          = "t3.micro"
+  vpc_security_group_ids = [aws_security_group.ubuntu_servers.id]
+  key_name               = "terra"
+
+  tags = {
+    Name = "Ubuntu2"
+  }
+}
+
+
+
+
+
+
+
+
 resource "aws_security_group" "ubuntu_servers" {
   name        = "ubuntu_servers"
   description = "Allow SSH inbound traffic"
@@ -50,6 +74,10 @@ resource "aws_security_group" "ubuntu_servers" {
 }
 
 
+output "instance_ip_addr" {
+  value = module.ec2_instances.public_dns
+}
+  
 output "instance_ip_addr" {
   value = aws_instance.ubuntu_server.public_dns
 }

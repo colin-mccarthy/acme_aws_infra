@@ -28,12 +28,14 @@ module "ec2_instances" {
 
 
 
-resource "aws_security_group" "ubuntu_servers" {
+module "vote_service_sg" {
+  source = "terraform-aws-modules/security-group/aws"
+  
   name        = "ubuntu_servers"
   description = "Allow SSH inbound traffic"
   vpc_id      = var.my_vpc
 
-  egress = [
+  egress_with_cidr_blocks = [
     {
       cidr_blocks      = [ "0.0.0.0/0", ]
       description      = ""
@@ -46,7 +48,7 @@ resource "aws_security_group" "ubuntu_servers" {
       to_port          = 0
     }
   ]
- ingress                = [
+ ingress_with_cidr_blocks = [
    {
      cidr_blocks      = [ "0.0.0.0/0", ]
      description      = ""

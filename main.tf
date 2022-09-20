@@ -13,7 +13,7 @@ module "ec2_instances" {
 
   ami                    = "ami-052efd3df9dad4825"
   instance_type          = "t3.micro"
-  vpc_security_group_ids = [aws_security_group.ubuntu_servers.id]
+  vpc_security_group_ids = [module.sg.ubuntu_servers.id]
   key_name               = "terra"
 
   tags = {
@@ -28,7 +28,7 @@ module "ec2_instances" {
 
 
 
-module "vote_service_sg" {
+module "sg" {
   source = "terraform-aws-modules/security-group/aws"
   
   name        = "ubuntu_servers"
@@ -40,10 +40,7 @@ module "vote_service_sg" {
       cidr_blocks      = "0.0.0.0/0"
       description      = ""
       from_port        = 0
-      ipv6_cidr_blocks = []
-      prefix_list_ids  = []
       protocol         = "-1"
-      security_groups  = []
       self             = false
       to_port          = 0
     }
@@ -54,10 +51,7 @@ module "vote_service_sg" {
      cidr_blocks      = "0.0.0.0/0"
      description      = ""
      from_port        = 22
-     ipv6_cidr_blocks = []
-     prefix_list_ids  = []
      protocol         = "tcp"
-     security_groups  = []
      self             = false
      to_port          = 22
   }

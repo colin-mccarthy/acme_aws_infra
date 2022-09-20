@@ -48,7 +48,8 @@ module "vote_service_sg" {
       to_port          = 0
     }
   ]
- ingress_with_cidr_blocks = [
+  
+  ingress_with_cidr_blocks = [
    {
      cidr_blocks      = [ "0.0.0.0/0", ]
      description      = ""

@@ -3,7 +3,7 @@
 ![Acme_pic][8]
 
 
-ENV VARS for local testing
+ENV VARS for local testing.
 
 ```
 export AWS_ACCESS_KEY_ID="anaccesskey"
